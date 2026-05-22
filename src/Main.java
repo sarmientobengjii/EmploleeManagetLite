@@ -30,6 +30,10 @@ public class Main {
                     break;
 
                 case 3:
+                    searchEmployee(scanner, employees);
+                    break;
+
+                case 4:
                     running = false;
                     System.out.println("Program terminated.");
                     break;
@@ -43,7 +47,8 @@ public class Main {
     public static void showMenu() {
         System.out.println("1. Add Employee");
         System.out.println("2. View Employees");
-        System.out.println("3. Exit Program");
+        System.out.println("3. Search Employee");
+        System.out.println("4. Exit Program");
 }
 
     public static void addEmployee(Scanner scanner, ArrayList<Employee> employees) {
@@ -79,5 +84,26 @@ public class Main {
             }
         }
     }
+
+    public static void searchEmployee(Scanner scanner, ArrayList<Employee> employees) {
+        System.out.println("Enter employee name: ");
+        String searchName = scanner.nextLine();
+
+        boolean found = false;
+
+        for (Employee e : employees) {
+            if (e.getName().equalsIgnoreCase(searchName)) {
+                e.introduce();
+                found = true;
+                break;
+            }
+        }
+
+        if (!found) {
+            System.out.println("Employee not found.");
+        }
+    }
+
+
 }
 
