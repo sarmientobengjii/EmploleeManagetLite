@@ -1,8 +1,12 @@
 package model;
 
 public class Employee {
-    private String name;
-    private double salary;
+
+    protected static final double MID_LEVEL_MIN_SALARY = 30000;
+    protected static final double SENIOR_MIN_SALARY = 60000;
+
+        private final String name;
+        private final double salary;
 
     public Employee(String name, double salary) {
         this.name = name;
